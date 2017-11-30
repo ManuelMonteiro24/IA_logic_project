@@ -130,15 +130,15 @@ def distribute_and_over_or(sample_obj):
     """
     if isinstance(sample_obj, tuple):
         if sample_obj[0] == 'or':
-            if(len(sample_obj[1])<=2) and (len(sample_obj[2])<=2):
+            if len(sample_obj[1])<=2 and len(sample_obj[2])<=2:
                 #doesn't change anything
                 return sample_obj
-            elif len(sample_obj[1]<=2):
+            elif len(sample_obj[1]) <=2:
                 if sample_obj[2][0] == 'and':
                     return 'and', ('or', sample_obj[1], distribute_and_over_or(sample_obj[2][1])), ('or', sample_obj[1], distribute_and_over_or(sample_obj[2][2]))
                 else:
                     return sample_obj[0], sample_obj[1], distribute_and_over_or(sample_obj[2])
-            elif len(sample_obj[2]<=2):
+            elif len(sample_obj[2])<=2:
                 if sample_obj[1][0] == 'and':
                     return 'and', ('or', sample_obj[2], distribute_and_over_or(sample_obj[1][1])), ('or', sample_obj[2], distribute_and_over_or(sample_obj[1][2]))
                 else:
