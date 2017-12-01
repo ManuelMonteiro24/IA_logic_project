@@ -106,8 +106,8 @@ def move_not_inwards(sample_obj):
 
 
 def distribute_and_over_or(sample_obj):
-    """Given a sentence s consisting of conjunctions and disjunctions
-    of literals, return an equivalent sentence in CNF.
+    """Given a sentence consisting of conjunctions and disjunctions
+    of literals, return an equivalent sentence as conjunctions of disjunctions.
     >>> distribute_and_over_or( 'or' , ( 'and', 'A' , 'B' ) , 'C')
     ( 'and', ( 'or', 'A' , 'C' ) , ( 'or', 'B' , 'C' ) )
     """
@@ -118,7 +118,7 @@ def distribute_and_over_or(sample_obj):
             #No more relations, except not, nested
             if len(sample_obj[1])<=2 and len(sample_obj[2])<=2:
                 return sample_obj
-            
+
             #first part of the relation its a literal or negated literals
             #the function only need to be propagated to the second part
             elif len(sample_obj[1]) <=2:
