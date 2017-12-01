@@ -82,17 +82,19 @@ def output_disjunctions_str(sample_obj):
         #literal found
         return  "'" + sample_obj + "'"
     else:
-        
+
         #wrong format case
         return None
 
 def output_disjunctions_set(sample_obj):
-    """ Returns a string with the cnf sentence received in the sample_obj argument
-    in a format which is the same of the prover.py input. The print is done trough a recursive
-    process similar to the one explained in the to_cnf.py file."""
+    """ Returns a set with the cnf sentence received in the sample_obj argument.
+    This set represents the cnf where the elements (separated by conjunction), are of the type
+    string if simply literals or the type frozenset if clauses or negated literals.
+    This process is done recursively as the transformation functions described in the to_cnf.py file."""
+
+    #clause or negated literal case
     if isinstance(sample_obj, tuple):
         if sample_obj[0] == 'and':
-            #a set of disjunctions per line
             return_set = set()
             auxset1 = set()
             auxset2 = set()
@@ -179,13 +181,20 @@ def output_disjunctions_set(sample_obj):
             return  sample_obj
 
     elif isinstance(sample_obj, str):
+
         #literal found
         return  sample_obj
     else:
+
         #wrong format case
         return None
 
 def remove_extra_tuple(sample_obj,outputset):
+    """ Utility function that removes the excess of () from the "or" tuple relation
+    with the objective to represent the clauses as a frozenset of simple (string) or negated literals (tuple).
+    This process is done recursively as the the output_disjunctions_set function.
+    The outputset argument receives the a set that the function will use to add the desired literals, when finished the function will return this set.
+    """
     if isinstance(sample_obj, set):
         auxset = set()
         for sample in sample_obj:
@@ -211,5 +220,6 @@ def remove_extra_tuple(sample_obj,outputset):
         outputset.add(sample_obj)
         return outputset
     else:
+
         #wrong format case
         return None
