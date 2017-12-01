@@ -3,7 +3,6 @@ CNF knowledge base."""
 
 import sys, fileinput, to_cnf, simplifications, utils
 
-
 knowledge_base = set()
 #read file from stdin line by line
 for line in fileinput.input():
@@ -13,11 +12,11 @@ for line in fileinput.input():
 
     if isinstance(sample_obj, str):
         #if a simple literal (dont comtemplates negated literals) was read print right away
-        sys.stdout.write("'" + sample_obj + "'" + "\n")
+        #sys.stdout.write("'" + sample_obj + "'" + "\n")
         knowledge_base.add(sample_obj)
         continue
 
-    sys.stdout.write(utils.output_disjunctions_str(to_cnf.distribute_and_over_or(to_cnf.move_not_inwards(to_cnf.eliminate_implications(to_cnf.eliminate_equivalence(sample_obj))))) + "\n")
+    #sys.stdout.write(utils.output_disjunctions_str(to_cnf.distribute_and_over_or(to_cnf.move_not_inwards(to_cnf.eliminate_implications(to_cnf.eliminate_equivalence(sample_obj))))) + "\n")
     sample_obj = utils.output_disjunctions_set(to_cnf.distribute_and_over_or(to_cnf.move_not_inwards(to_cnf.eliminate_implications(to_cnf.eliminate_equivalence(sample_obj)))))
     if isinstance(sample_obj, set):
         for sample in sample_obj:
@@ -25,5 +24,5 @@ for line in fileinput.input():
     else:
         knowledge_base.add(sample_obj)
 
-print(knowledge_base)
+sys.stdout.write(utils.output_KB(simplifications.simplification3(simplifications.simplification2(simplifications.simplification1(knowledge_base)))))
 sys.exit()

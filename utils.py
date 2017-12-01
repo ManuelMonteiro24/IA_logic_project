@@ -2,6 +2,35 @@
 
 import sys
 
+def output_KB(knowledge_base):
+    return_str = ""
+    if len(knowledge_base) == 0:
+        return return_str
+    else:
+        aux_iter0 = 0
+        for sample in knowledge_base:
+            aux_iter0 = aux_iter0 + 1
+            if isinstance(sample,str):
+                return_str += sample + "\n"
+                #if aux_iter0 > len(knowledge_base):
+                    #return_str += "\n"
+            else:
+                if len(sample) > 0:
+                    return_str += "["
+                    aux_iter = 0
+                    for sample1 in sample:
+                        aux_iter = aux_iter + 1
+                        if isinstance(sample1, str):
+                            return_str += sample1
+                        else:
+                            return_str += str(sample1)
+                        if aux_iter != len(sample):
+                            return_str += ", "
+                    return_str += "]\n"
+                #if aux_iter0 != len(knowledge_base):
+                    #return_str += "\n"
+        return return_str
+
 def output_disjunctions_str(sample_obj):
     """ Returns a string with the cnf sentence received in the sample_obj argument
     in a format which is the same of the prover.py input. The print is done trough a recursive
