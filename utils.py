@@ -128,6 +128,7 @@ def output_disjunctions_set(sample_obj):
         return None, None
 
 def receive_set(old_set, last_return):
+    """ Utility function that receives a set in old_set parameter that will receive new values from the last_return parameter."""
 
     if last_return[1] == 'or':
         auxset = set()
