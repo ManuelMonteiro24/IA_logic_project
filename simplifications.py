@@ -61,8 +61,8 @@ def simplification1(knowledge_base):
     return new_set
 
 def simplification2(knowledge_base):
-    """Change the CNF sentece received trough the knowledge_base argument into a conjunction of disjunctions or literals,
-    that doesn't has tautologies (any clause that contains both the literal and its not negation)."""
+    """Change the CNF sentece received through the knowledge_base argument into a conjunction of disjunctions or literals,
+    that doesn't has tautologies (any clause that contains both the literal and its negation)."""
     if len(knowledge_base) == 0:
         #empty sentence case
         return knowledge_base

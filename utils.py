@@ -22,7 +22,7 @@ def output_KB(knowledge_base):
 
             #simple literal case
             if isinstance(sample,str):
-                return_str += sample + "\n"
+                return_str += "'" + sample + "'\n"
                 #if aux_iter0 > len(knowledge_base):
                     #return_str += "\n"
 
@@ -38,7 +38,7 @@ def output_KB(knowledge_base):
                     for sample1 in sample:
                         aux_iter = aux_iter + 1
                         if isinstance(sample1, str):
-                            return_str += sample1
+                            return_str +=  "'" + sample1 + "'"
                         else:
                             return_str += str(sample1)
                         if aux_iter != len(sample):
@@ -95,99 +95,63 @@ def output_disjunctions_set(sample_obj):
     #clause or negated literal case
     if isinstance(sample_obj, tuple):
         if sample_obj[0] == 'and':
-            return_set = set()
-            auxset1 = set()
-            auxset2 = set()
-            auxset3 = set()
-            auxset4 = set()
-
             if isinstance(sample_obj[1], tuple) and sample_obj[1][0] == 'and' and isinstance(sample_obj[2], tuple) and sample_obj[2][0] == 'and' :
-                for sample in output_disjunctions_set(sample_obj[1]):
-                    if isinstance(sample, frozenset):
-                        for sample2 in sample:
-                            auxset3.add(sample2)
-                    else:
-                        auxset3.add(sample)
-                return_set.add(frozenset(auxset3))
-                for sample in output_disjunctions_set(sample_obj[2]):
-                    if isinstance(sample, frozenset):
-                        for sample2 in sample:
-                            auxset4.add(sample2)
-                    else:
-                        auxset4.add(sample)
-                return_set.add(frozenset(auxset4))
+                return receive_set(receive_set(set(), output_disjunctions_set(sample_obj[1])), output_disjunctions_set(sample_obj[2]) ), 'and'
+
             elif isinstance(sample_obj[1], tuple) and sample_obj[1][0] == 'and':
-                for sample in output_disjunctions_set(sample_obj[1]):
-                    if isinstance(sample, frozenset):
-                        for sample2 in sample:
-                            auxset3.add(sample2)
-                    else:
-                        auxset3.add(sample)
-                return_set.add(frozenset(auxset3))
-                secondpart = remove_extra_tuple(output_disjunctions_set(sample_obj[2]), auxset2)
-                for sample in secondpart:
-                    if isinstance(sample, frozenset):
-                        for sample2 in sample:
-                            auxset4.add(sample2)
-                    else:
-                        auxset4.add(sample)
-                return_set.add(frozenset(auxset4))
+                return receive_set(receive_set(set(), output_disjunctions_set(sample_obj[1])), remove_extra_tuple(output_disjunctions_set(sample_obj[2])[0], set()) ), 'and'
+
             elif isinstance(sample_obj[2], tuple) and sample_obj[2][0] == 'and':
-                for sample in output_disjunctions_set(sample_obj[2]):
-                    if isinstance(sample, frozenset):
-                        for sample2 in sample:
-                            auxset4.add(sample2)
-                    else:
-                        auxset4.add(sample)
-                return_set.add(frozenset(auxset4))
-                firstpart = remove_extra_tuple(output_disjunctions_set(sample_obj[1]), auxset1)
-                for sample in firstpart:
-                    if isinstance(sample, frozenset):
-                        for sample2 in sample:
-                            auxset3.add(sample2)
-                    else:
-                        auxset3.add(sample)
-                return_set.add(frozenset(auxset3))
+                return receive_set(receive_set(set(), output_disjunctions_set(sample_obj[2])), remove_extra_tuple(output_disjunctions_set(sample_obj[1])[0], set()) ), 'and'
+
             else:
-                firstpart = remove_extra_tuple(output_disjunctions_set(sample_obj[1]), auxset1)
-                secondpart = remove_extra_tuple(output_disjunctions_set(sample_obj[2]), auxset2)
-                for sample in firstpart:
-                    if isinstance(sample, frozenset):
-                        for sample2 in sample:
-                            auxset3.add(sample2)
-                    else:
-                        auxset3.add(sample)
-                return_set.add(frozenset(auxset3))
-                for sample in secondpart:
-                    if isinstance(sample, frozenset):
-                        for sample2 in sample:
-                            auxset4.add(sample2)
-                    else:
-                        auxset4.add(sample)
-                return_set.add(frozenset(auxset4))
-            return return_set
+                return receive_set(receive_set(set(), remove_extra_tuple(output_disjunctions_set(sample_obj[1])[0], set())), remove_extra_tuple(output_disjunctions_set(sample_obj[2])[0], set()) ), 'and'
+
         elif sample_obj[0] == 'or':
             #in this format the 'or' represation is omited
-            auxset1 = set()
-            auxset2 = set()
 
-            firstpart = remove_extra_tuple(output_disjunctions_set(sample_obj[1]), auxset1)
-            secondpart = remove_extra_tuple(output_disjunctions_set(sample_obj[2]), auxset2)
-            for sample in secondpart:
-                firstpart.add(sample)
-            return firstpart
+            firstpart = remove_extra_tuple(output_disjunctions_set(sample_obj[1])[0], set())
+            for sample in remove_extra_tuple(output_disjunctions_set(sample_obj[2])[0], set())[0]:
+                firstpart[0].add(sample)
+            return firstpart[0], 'or'
         else:
             #negated literal case
-            return  sample_obj
+            return  sample_obj, 'not'
 
     elif isinstance(sample_obj, str):
 
         #literal found
-        return  sample_obj
+        return  sample_obj, 'str'
     else:
 
         #wrong format case
-        return None
+        return None, None
+
+def receive_set(old_set, last_return):
+
+    if last_return[1] == 'or':
+        auxset = set()
+        for sample in last_return[0]:
+                auxset.add(sample)
+        old_set.add(frozenset(auxset))
+        return old_set
+
+    elif last_return[1] == 'str':
+        auxset = set()
+        for sample in last_return[0]:
+                old_set.add(sample)
+        return old_set
+
+    for sample in last_return[0]:
+        if isinstance(sample, frozenset):
+            auxset = set()
+            for sample2 in sample:
+                auxset.add(sample2)
+            old_set.add(frozenset(auxset))
+        else:
+            old_set.add(sample)
+
+    return old_set
 
 def remove_extra_tuple(sample_obj,outputset):
     """ Utility function that removes the excess of () from the "or" tuple relation
@@ -199,12 +163,12 @@ def remove_extra_tuple(sample_obj,outputset):
         auxset = set()
         for sample in sample_obj:
             auxset.add(sample)
-        return auxset
+        return auxset, 'or'
     elif isinstance(sample_obj, tuple):
         if sample_obj[0] == 'not':
             outputset.add(sample_obj)
         elif isinstance(sample_obj[0], str) and isinstance(sample_obj[1], str):
-            outputset.add(sample_obj[0])
+            outputset.add(sample_obj[0]),
             outputset.add(sample_obj[1])
         elif isinstance(sample_obj[0], str):
             outputset.add(sample_obj[0])
@@ -215,11 +179,11 @@ def remove_extra_tuple(sample_obj,outputset):
         else:
             outputset.union(remove_extra_tuple(sample_obj[0],outputset))
             outputset.union(remove_extra_tuple(sample_obj[1],outputset))
-        return outputset
+        return outputset, 'or'
     elif isinstance(sample_obj, str):
         outputset.add(sample_obj)
-        return outputset
+        return outputset, 'str'
     else:
 
         #wrong format case
-        return None
+        return None, None

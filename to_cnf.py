@@ -77,22 +77,20 @@ def move_not_inwards(sample_obj):
     if isinstance(sample_obj, tuple):
         if sample_obj[0] == 'not':
             if isinstance(sample_obj[1], str):
-
                 #doesn't change anything
                 return sample_obj
-            elif len(sample_obj[1]) == 2:
-
-                #two nots nested case, just propagate the function
+            elif isinstance(sample_obj[1], tuple) and sample_obj[1][0] == 'not' :
+                #two nested negations case, just propagate the function
                 return move_not_inwards(sample_obj[1][1])
             else:
                 if sample_obj[1][0] == 'and':
 
                     #'and' modification case
-                    return 'or', ('not', move_not_inwards(sample_obj[1][1])), ('not', move_not_inwards(sample_obj[1][2]))
+                    return 'or',  move_not_inwards(('not',sample_obj[1][1])), move_not_inwards(('not', sample_obj[1][2]))
                 else:
 
                     #'or' modification case
-                    return 'and', ('not', move_not_inwards(sample_obj[1][1])), ('not', move_not_inwards(sample_obj[1][2]))
+                    return 'and', move_not_inwards(('not',sample_obj[1][1])), move_not_inwards(('not', sample_obj[1][2])) 
 
         return sample_obj[0], move_not_inwards(sample_obj[1]), move_not_inwards(sample_obj[2])
 
@@ -101,6 +99,7 @@ def move_not_inwards(sample_obj):
         #literal found
         return sample_obj
     else:
+
         #wrong format case
         return None
 
