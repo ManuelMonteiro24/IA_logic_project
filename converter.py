@@ -20,14 +20,14 @@ for line in fileinput.input():
     sample_obj_cnf_2 = to_cnf.eliminate_implications(sample_obj_cnf_1)
     #print("remove impli: ", sample_obj_cnf_2)
     sample_obj_cnf_3 = to_cnf.move_not_inwards(sample_obj_cnf_2)
-    #print("move nots", sample_obj_cnf_3)
-    sample_obj_cnf_final = to_cnf.distribute_and_over_or(sample_obj_cnf_3)
+    print("move nots", sample_obj_cnf_3)
+    sample_obj_cnf_final = to_cnf.appltdist(sample_obj_cnf_3)
     #print("distribute_first: ", sample_obj_cnf_final)
 
-    while to_cnf.check_or_after_and(sample_obj_cnf_final):
-            sample_obj_cnf_final = to_cnf.distribute_and_over_or(sample_obj_cnf_final)
+    #while to_cnf.check_or_after_and(sample_obj_cnf_final):
+        #sample_obj_cnf_final = to_cnf.distribute_and_over_or2(sample_obj_cnf_final)
 
-    #print("distribute final: ", sample_obj_cnf_final)
+    print("distribute final : ", sample_obj_cnf_final)
 
 
 

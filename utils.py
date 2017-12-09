@@ -17,6 +17,7 @@ def output_KB(knowledge_base):
         aux_iter0 = 0
 
         #for each clause or literals in the sentece
+
         for sample in knowledge_base:
             aux_iter0 = aux_iter0 + 1
 
@@ -35,12 +36,15 @@ def output_KB(knowledge_base):
                     aux_iter = 0
 
                     #for each literal in clause
+                    if len(sample) == 2 and list(sample)[0] == 'not':
+                        return_str += "('" + str(list(sample)[0]) +"', '"+ str(list(sample)[1]) + "')]\n"
+                        return return_str
                     for sample1 in sample:
                         aux_iter = aux_iter + 1
                         if isinstance(sample1, str):
                             return_str +=  "'" + sample1 + "'"
                         else:
-                            return_str += str(sample1)
+                            return_str += "("+ str(sample1) + ")"
                         if aux_iter != len(sample):
                             return_str += ", "
 
