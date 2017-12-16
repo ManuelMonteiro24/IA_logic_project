@@ -16,23 +16,10 @@ for line in fileinput.input():
         sys.exit()
 
     sample_obj_cnf_1 = to_cnf.eliminate_equivalence(sample_obj)
-    #print("remove equi: ", sample_obj_cnf_1)
     sample_obj_cnf_2 = to_cnf.eliminate_implications(sample_obj_cnf_1)
-    #print("remove impli: ", sample_obj_cnf_2)
     sample_obj_cnf_3 = to_cnf.move_not_inwards(sample_obj_cnf_2)
-    print("move nots", sample_obj_cnf_3)
-    sample_obj_cnf_final = to_cnf.appltdist(sample_obj_cnf_3)
-    #print("distribute_first: ", sample_obj_cnf_final)
-
-    #while to_cnf.check_or_after_and(sample_obj_cnf_final):
-        #sample_obj_cnf_final = to_cnf.distribute_and_over_or2(sample_obj_cnf_final)
-
-    print("distribute final : ", sample_obj_cnf_final)
-
-
-
+    sample_obj_cnf_final = to_cnf.distribute_and_over_or(sample_obj_cnf_3)
     sample_obj = utils.output_disjunctions_set(sample_obj_cnf_final)[0]
-    #print("\nline result formated:", sample_obj, "\n")
 
     #add readed line to knowledge_base
     if isinstance(sample_obj, set):
