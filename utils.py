@@ -44,7 +44,7 @@ def output_KB(knowledge_base):
                         if isinstance(sample1, str):
                             return_str +=  "'" + sample1 + "'"
                         else:
-                            return_str += "("+ str(sample1) + ")"
+                            return_str += str(sample1)
                         if aux_iter != len(sample):
                             return_str += ", "
 
