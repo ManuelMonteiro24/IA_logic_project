@@ -46,4 +46,7 @@ knowledge_base_simplified2 = simplifications.simplification2(knowledge_base_simp
 knowledge_base_simplified3 = simplifications.simplification3(knowledge_base_simplified2)
 #print("final kb_simpled: ", knowledge_base_simplified3)
 sys.stdout.write(utils.output_KB(knowledge_base_simplified3 ))
+fh=open("result.txt",'w')
+fh.write(utils.output_KB(knowledge_base_simplified3 ))
+fh.close()
 sys.exit()
