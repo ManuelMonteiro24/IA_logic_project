@@ -22,11 +22,12 @@ for i in graph.vertices:
 
 # Resolution result
 result = problem.resolution_algorithm()
+print(result)
 
-if result == True:
-	print("True")
+# if result == True:
+# 	print("True")
 
-if result == False:
-	print("No solution")
+# if result == False:
+# 	print("No solution")
 
 sys.exit(0)
