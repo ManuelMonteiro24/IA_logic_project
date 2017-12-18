@@ -12,12 +12,10 @@ def output_KB(knowledge_base):
     if len(knowledge_base) == 0:
         return return_str
     else:
-
         #auxliar iterator to help with \n to the desired output format
         aux_iter0 = 0
 
         #for each clause or literals in the sentece
-
         for sample in knowledge_base:
             aux_iter0 = aux_iter0 + 1
 
@@ -26,19 +24,19 @@ def output_KB(knowledge_base):
                 return_str += "'" + sample + "'\n"
                 #if aux_iter0 > len(knowledge_base):
                     #return_str += "\n"
+            elif isinstance(sample,tuple):
+                return_str += str(sample) + "\n"
+                #if aux_iter0 > len(knowledge_base):
+                    #return_str += "\n"
 
-            #negated literal or clause case
+            #frozenset case
             else:
-                if len(sample) > 0:
+                if len(sample) == 1 and isinstance(list(sample)[0],tuple):
+                    return_str += str(list(sample)[0]) + "\n"
+                else:
                     return_str += "["
-
                     #second auxiliar iterator to help with commas to the desired output format
                     aux_iter = 0
-
-                    #for each literal in clause
-                    if len(sample) == 2 and list(sample)[0] == 'not':
-                        return_str += "('" + str(list(sample)[0]) +"', '"+ str(list(sample)[1]) + "')]\n"
-                        return return_str
                     for sample1 in sample:
                         aux_iter = aux_iter + 1
                         if isinstance(sample1, str):
@@ -51,8 +49,6 @@ def output_KB(knowledge_base):
                     #string sentence finished
                     return_str += "]\n"
 
-                #if aux_iter0 != len(knowledge_base):
-                    #return_str += "\n"
         return return_str
 
 #function used for debug in the beginning obsolete in the final version of the program
