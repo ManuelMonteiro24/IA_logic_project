@@ -14,10 +14,14 @@ def simplification1(knowledge_base):
 
     #for each element (separated by conjunctions) in CNF sentence
     for sample in knowledge_base:
+        if sample in clauses_not_to_remove:
+            continue
         #negated literal or clause case
         if isinstance(sample, frozenset):
             #for each literal in the clause
             for sample1 in sample:
+                if sample in clauses_not_to_remove:
+                    break
                 #generate the negation of the literal which we want to check, that is going to be hold by example1
                 if isinstance(sample1, tuple):
                     example1 = sample1[1]
@@ -33,26 +37,32 @@ def simplification1(knowledge_base):
                         for sample3 in sample2:
                             if sample1 == sample3 or example1 == sample3:
                                 clauses_not_to_remove.add(sample)
+                                break
                     #literal case
                     else:
                         if sample1 == sample2 or example1 == sample2:
                             clauses_not_to_remove.add(sample)
+                            break
         #literal case
         else:
             #goes trough the sentence (from the beginning) to compare the sample1 and its negation
             #to all the literal in sentence to check if the one in sample1 and its negation has another occurence
             for sample1 in knowledge_base:
+                if sample in clauses_not_to_remove:
+                    break
                 #negated literal or clause case
                 if isinstance(sample1, frozenset):
                     #for each literal in the clause
                     for sample2 in sample1:
                         if sample == sample2 or tuple(['not', sample]) == sample2:
                             clauses_not_to_remove.add(sample)
+                            break
 
                 #literal case
                 else:
                     if sample == sample1 or tuple(['not', sample]) == sample1:
                         clauses_not_to_remove.add(sample)
+                        break
 
     # set that will receive all the clauses that "survived" the conditon being checked, (simplified sentence)
     new_set = set()

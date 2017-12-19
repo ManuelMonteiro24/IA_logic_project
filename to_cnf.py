@@ -94,14 +94,8 @@ def move_not_inwards(sample_obj):
 
         return sample_obj[0], move_not_inwards(sample_obj[1]), move_not_inwards(sample_obj[2])
 
-    elif isinstance(sample_obj, str):
-
-        #literal found
-        return sample_obj
     else:
-
-        #wrong format case
-        return None
+        return sample_obj
 
 def distribute_and_over_or(sample_obj):
     """Given a sentence consisting of conjunctions and disjunctions
@@ -113,11 +107,14 @@ def distribute_and_over_or(sample_obj):
     if isinstance(sample_obj, str) != True and sample_obj[0] != 'not':
         sample_obj = (sample_obj[0], distribute_and_over_or(sample_obj[1]), distribute_and_over_or(sample_obj[2]))
         if sample_obj[0] == 'or':
+            #if sample_obj[1][0] == 'and' and sample_obj[2][0] == 'and':
+                #return ('and',('and', distribute_and_over_or(('or', sample_obj[1][1], sample_obj[2])), distribute_and_over_or(('or', sample_obj[1][2], sample_obj[2]))),('and', distribute_and_over_or(('or', sample_obj[1], sample_obj[2][1])), distribute_and_over_or(('or', sample_obj[1], sample_obj[2][2]))))
             if sample_obj[1][0] == 'and':
                 return ('and', distribute_and_over_or(('or', sample_obj[1][1], sample_obj[2])), distribute_and_over_or(('or', sample_obj[1][2], sample_obj[2])))
             elif sample_obj[2][0] == 'and':
                 return ('and', distribute_and_over_or(('or', sample_obj[1], sample_obj[2][1])), distribute_and_over_or(('or', sample_obj[1], sample_obj[2][2])))
-            return sample_obj
+            else:
+                return sample_obj
         else:
             return sample_obj
     return sample_obj

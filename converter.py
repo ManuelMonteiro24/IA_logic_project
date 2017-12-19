@@ -16,10 +16,25 @@ for line in fileinput.input():
         sys.exit()
 
     sample_obj_cnf_1 = to_cnf.eliminate_equivalence(sample_obj)
+    print("first eliminate_equivalence: ", sample_obj_cnf_1)
+    print()
     sample_obj_cnf_2 = to_cnf.eliminate_implications(sample_obj_cnf_1)
+    print("first eliminate_implications: ", sample_obj_cnf_2)
+    print()
     sample_obj_cnf_3 = to_cnf.move_not_inwards(sample_obj_cnf_2)
+    print("first move_not_inwards: ", sample_obj_cnf_3)
+    print()
     sample_obj_cnf_final = to_cnf.distribute_and_over_or(sample_obj_cnf_3)
+    print("first distribute_and_over_or: ", sample_obj_cnf_final)
+    print()
     sample_obj = utils.output_disjunctions_set(sample_obj_cnf_final)[0]
+
+    flag = 0
+    for sample in sample_obj:
+        if isinstance(sample, frozenset) and len(sample) != 1:
+            flag =1
+    if flag== 0:
+        sample_obj = frozenset(sample_obj)
 
     #add readed line to knowledge_base
     if isinstance(sample_obj, set):
@@ -37,14 +52,18 @@ for line in fileinput.input():
         #simple literal case (dont comtemplates negated literals)
         knowledge_base.add(sample_obj)
 
-#print("kb", knowledge_base)
+print("kb", knowledge_base)
+print()
 #output CNF sentece to stdout in the pretended format
 knowledge_base_simplified1 = simplifications.simplification1(knowledge_base)
-#print("first kb_simpled: ", knowledge_base_simplified1)
+print("first kb_simpled: ", knowledge_base_simplified1)
+print()
 knowledge_base_simplified2 = simplifications.simplification2(knowledge_base_simplified1)
-#3print("second kb_simpled: ", knowledge_base_simplified2)
+print("second kb_simpled: ", knowledge_base_simplified2)
+print()
 knowledge_base_simplified3 = simplifications.simplification3(knowledge_base_simplified2)
-#print("final kb_simpled: ", knowledge_base_simplified3)
+print("final kb_simpled: ", knowledge_base_simplified3)
+print()
 sys.stdout.write(utils.output_KB(knowledge_base_simplified3 ))
 fh=open("result.txt",'w')
 fh.write(utils.output_KB(knowledge_base_simplified3 ))
