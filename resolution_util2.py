@@ -95,20 +95,20 @@ class Graph():
 	# Add vertex to graph, and connect to its neighbors
 	def add_vertex(self, clause):
 		explored_vertices = list()
-		print("\tN vertices: ", self.num_vertices)
+		#print("\tN vertices: ", self.num_vertices)
 
 		# No vertex with id clause in graph
 		if self.get_vertex(clause) is None:
-			print("\t0")
+			#print("\t0")
 			new_vertex = Vertex(clause)
 
 			# Graph with vertices
 			if self.num_vertices != 0:
-				print("\t1")
+				#print("\t1")
 				symmetric_set = set()
 				new_vertex.symmetric = find_symmetric(clause, symmetric_set)	
 					
-				print("\t3")
+				#print("\t3")
 				neighbor = 0
 
 				for i in new_vertex.symmetric:
@@ -122,14 +122,14 @@ class Graph():
 								neighbor = 1
 						
 							else:
-								print("0",is_literal(vertex_id), vertex_id)
+								#print("0",is_literal(vertex_id), vertex_id)
 								if is_literal(vertex_id) == -1:
-									print("1",is_literal(vertex_id), vertex_id,"\n")
+									#print("1",is_literal(vertex_id), vertex_id,"\n")
 									aux_vertex = eval(vertex_id)
 
 									for j in range(len(aux_vertex)):
 										if not isinstance(aux_vertex[j],str):
-											print(i, str(aux_vertex[j]))
+											#print(i, str(aux_vertex[j]))
 											aux = str(aux_vertex[j])
 											aux = aux.replace(' ', '')
 											if aux == i:
@@ -137,12 +137,12 @@ class Graph():
 												break
 										else:
 											
-											print(aux_vertex,aux_vertex[j])
+											#print(aux_vertex,aux_vertex[j])
 											if is_literal(aux_vertex[j]) == 1:
 												aux = "'" + aux_vertex[j] + "'"
 											else:
 												aux = aux_vertex
-											print(i, aux_vertex[j])
+											#print(i, aux_vertex[j])
 											if aux == i:
 												neighbor = 1
 												break
@@ -151,9 +151,9 @@ class Graph():
 							explored_vertices.append(vertex_id)
 							new_vertex.add_neighbor(self.vertices[vertex_id])
 							self.vertices[vertex_id].add_neighbor(new_vertex)
-							print("NEIGH")
-							print(self.vertices[vertex_id])
-							print(new_vertex)
+							#print("NEIGH")
+							#print(self.vertices[vertex_id])
+							#print(new_vertex)
 							neighbor = 0								
 
 			# First vertex
@@ -163,7 +163,7 @@ class Graph():
 			
 			self.num_vertices += 1
 			self.vertices[new_vertex.id] = new_vertex
-			print("\t",new_vertex)
+			#print("\t",new_vertex)
 			return True
 
 		else:
@@ -206,10 +206,10 @@ class Resolution(Graph):
 					#print(self.vertices[i])
 					cj = self.vertices[i].neighbors[0]
 					break
-			print("\n")
-			print(self.vertices[ci])
-			print("KB: ", self.knowledge_base, "ci: ", ci, "cj: ", cj)
-			print("Explored clauses: ", self.explored_clauses)
+			#print("\n")
+			#print(self.vertices[ci])
+			#print("KB: ", self.knowledge_base, "ci: ", ci, "cj: ", cj)
+			#print("Explored clauses: ", self.explored_clauses)
 			
 			result = self.resolve3(ci, cj)
 
@@ -218,14 +218,14 @@ class Resolution(Graph):
 			else:
 				return True	
 		else:
-			print("No solution!!")
+			#print("No solution!!")
 			return False
 
 
 	def resolve3(self, Ci, Cj):
 
 		end_resolution = 0
-		print("\tRESOLVE3 ", Ci, Cj)
+		#print("\tRESOLVE3 ", Ci, Cj)
 
 		if is_literal(Ci) == -1:
 			ci = eval(Ci)
@@ -236,12 +236,12 @@ class Resolution(Graph):
 
 		if ( (is_literal(Ci) == 2 and list(self.vertices[Ci].symmetric)[0] == Cj) or (is_literal(Cj) == 2 and list(self.vertices[Ci].symmetric)[0] == Cj) ):
 			#End of resolution
-			print("End resolution 0")
+			#print("End resolution 0")
 			return True
 
 		else:
 			literals = set()
-			print("Is literal 0: ", Ci, is_literal(Ci))
+			#print("Is literal 0: ", Ci, is_literal(Ci))
 			if is_literal(Ci) == 2 or is_literal(Ci) == 3:
 				literals.add(Ci)
 			else:
@@ -251,11 +251,11 @@ class Resolution(Graph):
 					else:
 						i = str(i)
 						i = i.replace(' ','')
-						print("0: ",i, is_literal(i))
+						#print("0: ",i, is_literal(i))
 						
 					literals.add(i)
 
-			print("Is literal 1: ", Cj, is_literal(Cj))
+			#print("Is literal 1: ", Cj, is_literal(Cj))
 			if is_literal(Cj) == 2 or is_literal(Cj) == 3:
 				literals.add(Cj)
 			else:
@@ -265,27 +265,27 @@ class Resolution(Graph):
 					else:
 						j = str(j)
 						j = j.replace(' ','')
-						print("1: ",j, is_literal(j))
+						#print("1: ",j, is_literal(j))
 						
 
 					literals.add(j)			
 
-			print("\tLiterals: ", literals)
+			#print("\tLiterals: ", literals)
 			
 			aux_literals = list(literals)[:]
 			aux_literals = set(aux_literals)
 			for l in literals:
-				print("\t",l, isinstance(l,str))
+				#print("\t",l, isinstance(l,str))
 				sym_set = set()
 				sym_set = find_symmetric(l, sym_set)
-				print("\tsym ", sym_set)
+				#print("\tsym ", sym_set)
 
 				if list(sym_set)[0] in aux_literals:
-					print("\t1", l, list(sym_set)[0])
+					#print("\t1", l, list(sym_set)[0])
 					aux_literals.remove(l)
 					aux_literals.remove(list(sym_set)[0])					
-					print(literals)
-					print(aux_literals)
+					#print(literals)
+					#print(aux_literals)
 			
 
 			if literals != set():
@@ -303,23 +303,23 @@ class Resolution(Graph):
 				if len(eval(new_clause)) == 1:
 					new_clause = new_clause[1:-1]
 
-				print("New clause: ", new_clause)
+				#print("New clause: ", new_clause)
 
 				if new_clause not in self.knowledge_base:
 					if self.add_vertex(new_clause):
-						print("New clause: ", new_clause)
+						#print("New clause: ", new_clause)
 						if is_literal(new_clause) == 2 or is_literal(new_clause) == 3:
 							self.knowledge_base.insert(0,new_clause)
 						else:
 							self.knowledge_base.append(new_clause)
 
-						print(self.vertices[new_clause])
+						#print(self.vertices[new_clause])
 
 								
 			self.vertices[Ci].neighbors.remove(Cj)
 			self.vertices[Cj].neighbors.remove(Ci)
-			print(self.vertices[Ci].neighbors)
-			print(self.vertices[Cj].neighbors)
+			#print(self.vertices[Ci].neighbors)
+			#print(self.vertices[Cj].neighbors)
 
 			if self.vertices[Ci].neighbors == []:
 				print("ci explored")		
