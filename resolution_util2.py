@@ -322,7 +322,7 @@ class Resolution(Graph):
 			#print(self.vertices[Cj].neighbors)
 
 			if self.vertices[Ci].neighbors == []:
-				print("ci explored")		
+				#print("ci explored")		
 				self.explored_clauses.append(Ci)
 			
 			return False
