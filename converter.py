@@ -16,44 +16,41 @@ for line in fileinput.input():
         sys.exit()
 
     sample_obj_cnf_1 = to_cnf.eliminate_equivalence(sample_obj)
-    print("first eliminate_equivalence: ", sample_obj_cnf_1)
-    print()
     sample_obj_cnf_2 = to_cnf.eliminate_implications(sample_obj_cnf_1)
-    print("first eliminate_implications: ", sample_obj_cnf_2)
-    print()
     sample_obj_cnf_3 = to_cnf.move_not_inwards(sample_obj_cnf_2)
-    print("first move_not_inwards: ", sample_obj_cnf_3)
-    print()
     sample_obj_cnf_final = to_cnf.distribute_and_over_or(sample_obj_cnf_3)
-    print("first distribute_and_over_or: ", sample_obj_cnf_final)
-    print()
-    sample_obj = utils.output_disjunctions_set(sample_obj_cnf_final)[0]
-
-    flag = 0
-    for sample in sample_obj:
-        if isinstance(sample, frozenset) and len(sample) != 1:
-            flag =1
-    if flag== 0:
-        sample_obj = frozenset(sample_obj)
+    sample_obj = utils.output_disjunctions_set(sample_obj_cnf_final)
 
     #add readed line to knowledge_base
-    if isinstance(sample_obj, set):
-        #clauses or negated literals case
+    if len(sample_obj) == 3:
         for sample in sample_obj:
-            if isinstance(sample, frozenset) and len(sample) == 1:
-                aux = next(iter(sample))
-                if isinstance(aux, tuple):
+            if isinstance(sample, frozenset):
+                knowledge_base.add(sample)
+                break
+    else:
+        if isinstance(sample_obj[0], str) and ( sample_obj[0] == 'or' or sample_obj[0] == 'not' or sample_obj[0] == 'str' or sample_obj[0] == 'and'):
+            sample_obj = sample_obj[1]
+
+        else:
+            sample_obj = sample_obj[0]
+
+        if isinstance(sample_obj, set):
+            for sample in sample_obj:
+                knowledge_base_aux = []
+                if isinstance(sample, frozenset):
+                    #for sample1 in sample:
+                        #knowledge_base_aux.append(sample1)
                     knowledge_base.add(sample)
                 else:
-                    knowledge_base.add(aux)
-            else:
-                knowledge_base.add(sample)
-    else:
-        #simple literal case (dont comtemplates negated literals)
-        knowledge_base.add(sample_obj)
+                    knowledge_base.add(sample)
+
+        elif isinstance(sample_obj, tuple):
+            knowledge_base.add(sample_obj)
+        else:
+            #single literal case
+            knowledge_base.add(sample_obj)
 
 print("kb", knowledge_base)
-print()
 #output CNF sentece to stdout in the pretended format
 knowledge_base_simplified1 = simplifications.simplification1(knowledge_base)
 print("first kb_simpled: ", knowledge_base_simplified1)

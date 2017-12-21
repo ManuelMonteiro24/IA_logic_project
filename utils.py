@@ -33,6 +33,8 @@ def output_KB(knowledge_base):
             else:
                 if len(sample) == 1 and isinstance(list(sample)[0],tuple):
                     return_str += str(list(sample)[0]) + "\n"
+                elif len(sample) == 1:
+                    return_str += str(list(sample)[0]) + "\n"
                 else:
                     return_str += "["
                     #second auxiliar iterator to help with commas to the desired output format
@@ -113,15 +115,15 @@ def output_disjunctions_set(sample_obj):
             firstpart = remove_extra_tuple(output_disjunctions_set(sample_obj[1])[0], set())
             for sample in remove_extra_tuple(output_disjunctions_set(sample_obj[2])[0], set())[0]:
                 firstpart[0].add(sample)
-            return firstpart[0], 'or'
+            return firstpart[0], 'or', frozenset(firstpart[0])
         else:
             #negated literal case
-            return  sample_obj, 'not'
+            return sample_obj, 'not'
 
     elif isinstance(sample_obj, str):
 
         #literal found
-        return  sample_obj, 'str'
+        return sample_obj, 'str'
     else:
 
         #wrong format case

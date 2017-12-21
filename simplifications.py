@@ -117,7 +117,7 @@ def simplification3(knowledge_base):
 
     for sample in knowledge_base:
         #negated literal or clause case
-        if isinstance(sample, frozenset):
+        if isinstance(sample, frozenset) and len(sample) != 1:
             #goes trough the sentence (from the beginning), to check if the intersection between the clause being
             #checked and the others clauses are equal to the clause being checked, which tell us that the last one
             #is a bigger set to be removed
