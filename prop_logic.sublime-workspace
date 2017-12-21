@@ -1,0 +1,741 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"s",
+				"shape"
+			],
+			[
+				"cre",
+				"create_Z"
+			],
+			[
+				"cr",
+				"create_H_R"
+			],
+			[
+				"valid",
+				"valid_markers"
+			],
+			[
+				"H",
+				"H_aux"
+			],
+			[
+				"a",
+				"alfa"
+			],
+			[
+				"T",
+				"T_Threshold"
+			],
+			[
+				"da",
+				"data_request"
+			],
+			[
+				"n",
+				"n"
+			],
+			[
+				"m",
+				"m_c"
+			],
+			[
+				"gene",
+				"generate_node"
+			],
+			[
+				"N",
+				"N_aux"
+			],
+			[
+				"i",
+				"i"
+			],
+			[
+				"gener",
+				"general_search"
+			],
+			[
+				"path",
+				"path"
+			],
+			[
+				"Fs",
+				"False"
+			],
+			[
+				"mod",
+				"modules_on_earth"
+			],
+			[
+				"node",
+				"node"
+			],
+			[
+				"pa",
+				"path_cost"
+			],
+			[
+				"ke",
+				"key"
+			],
+			[
+				"fro",
+				"frontier"
+			],
+			[
+				"list",
+				"list_size"
+			],
+			[
+				"fis",
+				"first_node"
+			],
+			[
+				"re",
+				"return"
+			],
+			[
+				"li",
+				"list_size"
+			],
+			[
+				"for",
+				"for\tFor Loop"
+			],
+			[
+				"prio",
+				"priority_node"
+			],
+			[
+				"LAUN",
+				"launch_id"
+			],
+			[
+				"PA",
+				"path_cost"
+			],
+			[
+				"pat",
+				"path_max"
+			],
+			[
+				"NO",
+				"None"
+			],
+			[
+				"fin",
+				"final_path"
+			],
+			[
+				"add",
+				"add_node"
+			],
+			[
+				"ret",
+				"return_str"
+			],
+			[
+				"ver",
+				"vertex_2_id"
+			],
+			[
+				"lau",
+				"launch_id"
+			],
+			[
+				"laun",
+				"launch_id"
+			],
+			[
+				"in",
+				"initial_node"
+			],
+			[
+				"gr",
+				"graph_struct"
+			],
+			[
+				"No",
+				"None"
+			],
+			[
+				"la",
+				"launch_schedule"
+			],
+			[
+				"l",
+				"launch_cost"
+			],
+			[
+				"sol",
+				"solution_node"
+			],
+			[
+				"suc",
+				"successors_id"
+			],
+			[
+				"launc",
+				"launch_cost"
+			],
+			[
+				"f",
+				"fixed_cost"
+			],
+			[
+				"ma",
+				"max_payload"
+			],
+			[
+				"cu",
+				"current_node"
+			],
+			[
+				"ne",
+				"new_node"
+			],
+			[
+				"launch_",
+				"launch_id"
+			],
+			[
+				"PR",
+				"print"
+			],
+			[
+				"fri",
+				"frontier"
+			],
+			[
+				"p",
+				"path_cost"
+			],
+			[
+				"aux",
+				"aux_queue"
+			],
+			[
+				"E",
+				"explored"
+			],
+			[
+				"fd_",
+				"fd_w"
+			],
+			[
+				"e_v",
+				"e_vx"
+			],
+			[
+				"data",
+				"data_request"
+			],
+			[
+				"pr",
+				"print"
+			],
+			[
+				"launch",
+				"launch_id"
+			],
+			[
+				"moduel",
+				"modules_in_space"
+			],
+			[
+				"launche",
+				"launch_schedule"
+			],
+			[
+				"de",
+				"define"
+			],
+			[
+				"nei",
+				"neighbors_modules_in_space"
+			],
+			[
+				"mo",
+				"modules_in_space"
+			],
+			[
+				"c",
+				"combination"
+			],
+			[
+				"mode",
+				"modules_on_earth"
+			],
+			[
+				"ex",
+				"extra_modules"
+			],
+			[
+				"nieg",
+				"neigh"
+			],
+			[
+				"ine",
+				"intersection"
+			],
+			[
+				"ed",
+				"edge_dict"
+			],
+			[
+				"con",
+				"continue"
+			],
+			[
+				"modu",
+				"modules_in_space"
+			],
+			[
+				"launches",
+				"launches_dict"
+			],
+			[
+				"new",
+				"new_node"
+			],
+			[
+				"succ",
+				"successors"
+			],
+			[
+				"neig",
+				"neighbors"
+			],
+			[
+				"lis",
+				"list_vertices"
+			],
+			[
+				"co",
+				"count_breaks"
+			],
+			[
+				"total",
+				"total_weight"
+			],
+			[
+				"com",
+				"comb"
+			],
+			[
+				"wi",
+				"weight_calculator"
+			],
+			[
+				"no",
+				"node"
+			],
+			[
+				"un",
+				"unlaunched_nodes_weight"
+			],
+			[
+				"G",
+				"Graph"
+			],
+			[
+				"pare",
+				"parent_id"
+			],
+			[
+				"w",
+				"weight"
+			],
+			[
+				"get",
+				"get_neighbors"
+			],
+			[
+				"verte",
+				"vertex_neighb"
+			],
+			[
+				"ge",
+				"get_neighbors"
+			],
+			[
+				"vert",
+				"vertex_names"
+			],
+			[
+				"is",
+				"isinstance"
+			],
+			[
+				"gra",
+				"graph_obj"
+			],
+			[
+				"id",
+				"id"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/home/sofia/Documents/IASD/Projects/Propositional Logic/converter.py",
+			"settings":
+			{
+				"buffer_size": 280,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/sofia/Documents/IASD/Projects/Propositional Logic/prover.py",
+			"settings":
+			{
+				"buffer_size": 211,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/sofia/Documents/IASD/Projects/Propositional Logic/utils_cnf.py",
+			"settings":
+			{
+				"buffer_size": 3912,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/sofia/Documents/IASD/IA_logic_project/utils_cnf.py",
+		"/home/sofia/Documents/IASD/IA_logic_project/prover.py",
+		"/home/sofia/Documents/IASD/IA_logic_project/converter.py",
+		"/home/sofia/catkin_workspace/src/marina/src/kalman.py",
+		"/home/sofia/Documents/IASD/78563_79138/solver.py",
+		"/home/sofia/Documents/SAI/Lab3/controller_linear.c",
+		"/home/sofia/Documents/SA/marina/src/kalman.py",
+		"/home/sofia/Documents/SA/marina/launch/tracker_indiv.launch",
+		"/home/sofia/catkin_workspace/src/marina/launch/tracker_indiv.launch",
+		"/home/sofia/Documents/SAI/Lab3/non_linear.c",
+		"/home/sofia/Documents/SAI/Lab3/graphics.c",
+		"/home/sofia/Documents/SAI/Lab3/linear.c",
+		"/home/sofia/Documents/SA/kalman.py",
+		"/home/sofia/Downloads/kalman.py",
+		"/home/sofia/catkin_workspace/src/sa_project/src/kalman.py",
+		"/home/sofia/catkin_workspace/src/sa_project/launch/tracker_indiv.launch",
+		"/home/sofia/Documents/IASD/78563_79138/heuristic.py",
+		"/home/sofia/Documents/SAI/Lab3/linear1.c",
+		"/home/sofia/Documents/SA/calibration_crazyflie.launch",
+		"/home/sofia/Documents/IASD/IA_Space_project/problem/problem.py",
+		"/home/sofia/Documents/SA/test.py",
+		"/home/sofia/catkin_ws/src/learning_tf/nodes/turtle_tf_broadcaster.py",
+		"/home/sofia/Documents/SA/calibration_crazyflie2.launch",
+		"/home/sofia/Documents/SAI/Lab2/2.c",
+		"/home/sofia/Documents/SAI/Lab2/1.c",
+		"/home/sofia/Documents/IASD/IA_Space_project/uninformed_search_functions.py",
+		"/home/sofia/Documents/IASD/Projeto/strategy/modified_Queue.py",
+		"/home/sofia/Documents/IASD/IA_Space_project/informed_search_function.py",
+		"/home/sofia/Documents/IASD/IA_Space_project/informed_search_functions.py",
+		"/home/sofia/Documents/IASD/Projeto/informed_search_function.py",
+		"/home/sofia/Documents/IASD/Projeto/utils/file_functions.py",
+		"/home/sofia/Documents/IASD/IA_Space_project/utils/file_functions.py",
+		"/home/sofia/Documents/IASD/Projeto/solver.py",
+		"/home/sofia/Documents/IASD/IA_Space_project/utils/launch.py",
+		"/home/sofia/Documents/IASD/IA_Space_project/heuristic.py",
+		"/home/sofia/Documents/IASD/IA_Space_project/graphs/graph_struct.py",
+		"/home/sofia/Documents/IASD/IA_Space_project/strategy/modified_Queue.py",
+		"/home/sofia/Documents/IASD/IA_Space_project/solver.py",
+		"/home/sofia/Documents/IASD/Projeto/uninformed_search_function.py",
+		"/home/sofia/Documents/IASD/Projeto/graphs/graph_struct.py",
+		"/home/sofia/Documents/IASD/Projeto/heuristics.py",
+		"/home/sofia/Documents/IASD/Projeto/strategy/Queue_data.py",
+		"/home/sofia/Documents/IASD/Projeto/uniformed_search_function_fast.py",
+		"/home/sofia/Documents/IASD/Projeto/solver2.py",
+		"/home/sofia/Documents/IASD/P/graphs/graph_struct.py",
+		"/home/sofia/Documents/IASD/IA_Space_project/uninformed_search_function.py",
+		"/home/sofia/Documents/IASD/IA_Space_project/uniformed_search_function_fast.py",
+		"/home/sofia/Documents/IASD/Projeto/strategy/stack.py",
+		"/home/sofia/Documents/IASD/IA_Space_project/uniformed_manel.py",
+		"/home/sofia/Documents/IASD/IA_Space_project/strategy/Queue_data.py",
+		"/home/sofia/Documents/IASD/Projeto/uninformed_search_function2.py",
+		"/home/sofia/Documents/IASD/IA_Space_project/strategy/stack.py",
+		"/tmp/mozilla_sofia0/lab5-fifo-1.c",
+		"/tmp/mozilla_sofia0/lab5-fifo.c",
+		"/home/sofia/Downloads/abion.c",
+		"/home/sofia/Documents/IASD/Projeto/test.py",
+		"/home/sofia/Documents/IASD/P/solver.py",
+		"/home/sofia/Documents/IASD/Projeto/graphs/graph_struct2.py",
+		"/home/sofia/Documents/IASD/Projeto/graphs/graph_struct_old.py",
+		"/home/sofia/Documents/IASD/Projeto/utils/__init__.py",
+		"/home/sofia/Documents/IASD/Projeto/utils/__init__",
+		"/home/sofia/Documents/SAI/2.c",
+		"/home/sofia/Documents/IASD/tutorial92.py",
+		"/home/sofia/Documents/IASD/xpto.py",
+		"/home/sofia/Documents/SAI/4.c",
+		"/home/sofia/Documents/SAI/3.c",
+		"/home/sofia/Documents/SA/autonomous_systems/lab2/tf_listener_tutorial.py",
+		"/home/sofia/Documents/SAI/1.c",
+		"/home/sofia/Documents/w.py",
+		"/tmp/mozilla_sofia0/gateway2.c"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			">",
+			" ",
+			"}\n",
+			")\n",
+			"()",
+			"Node",
+			"launch_schedule",
+			"print",
+			"launch_list",
+			"neigh",
+			"set",
+			"Vertex",
+			"!\")ass",
+			"!\")"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/home/sofia/Documents/IASD/Projects/Propositional Logic/converter.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 280,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/home/sofia/Documents/IASD/Projects/Propositional Logic/prover.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 211,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/home/sofia/Documents/IASD/Projects/Propositional Logic/utils_cnf.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3912,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.unsaved_changes":
+	{
+		"height": 24.0
+	},
+	"pinned_build_system": "",
+	"project": "prop_logic.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"~/Documents/IASD/IA_Space_project/utils/file_functions.py"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

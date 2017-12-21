@@ -1,6 +1,3 @@
-# from resolution_util import Vertex
-# from resolution_util import Graph
-# from resolution_util import find_symmetric
 from resolution_util2 import *
 import sys, fileinput
 
