@@ -107,8 +107,6 @@ def distribute_and_over_or(sample_obj):
     if isinstance(sample_obj, str) != True and sample_obj[0] != 'not':
         sample_obj = (sample_obj[0], distribute_and_over_or(sample_obj[1]), distribute_and_over_or(sample_obj[2]))
         if sample_obj[0] == 'or':
-            #if sample_obj[1][0] == 'and' and sample_obj[2][0] == 'and':
-                #return ('and',('and', distribute_and_over_or(('or', sample_obj[1][1], sample_obj[2])), distribute_and_over_or(('or', sample_obj[1][2], sample_obj[2]))),('and', distribute_and_over_or(('or', sample_obj[1], sample_obj[2][1])), distribute_and_over_or(('or', sample_obj[1], sample_obj[2][2]))))
             if sample_obj[1][0] == 'and':
                 return ('and', distribute_and_over_or(('or', sample_obj[1][1], sample_obj[2])), distribute_and_over_or(('or', sample_obj[1][2], sample_obj[2])))
             elif sample_obj[2][0] == 'and':

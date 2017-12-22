@@ -23,11 +23,13 @@ for line in fileinput.input():
 
     #add readed line to knowledge_base
     if len(sample_obj) == 3:
+        #final relation its a or
         for sample in sample_obj:
             if isinstance(sample, frozenset):
                 knowledge_base.add(sample)
                 break
     else:
+        #get set,str or tuple clause
         if isinstance(sample_obj[0], str) and ( sample_obj[0] == 'or' or sample_obj[0] == 'not' or sample_obj[0] == 'str' or sample_obj[0] == 'and'):
             sample_obj = sample_obj[1]
 
@@ -35,31 +37,23 @@ for line in fileinput.input():
             sample_obj = sample_obj[0]
 
         if isinstance(sample_obj, set):
+
+            #set clause case
             for sample in sample_obj:
-                knowledge_base_aux = []
-                if isinstance(sample, frozenset):
-                    #for sample1 in sample:
-                        #knowledge_base_aux.append(sample1)
-                    knowledge_base.add(sample)
-                else:
                     knowledge_base.add(sample)
 
         elif isinstance(sample_obj, tuple):
+
+            #tuple clause case
             knowledge_base.add(sample_obj)
         else:
-            #single literal case
+
+            #literal clause case
             knowledge_base.add(sample_obj)
 
-#print("kb", knowledge_base)
-#output CNF sentece to stdout in the pretended format
+
 knowledge_base_simplified1 = simplifications.simplification1(knowledge_base)
-#print("first kb_simpled: ", knowledge_base_simplified1)
-#print()
 knowledge_base_simplified2 = simplifications.simplification2(knowledge_base_simplified1)
-#print("second kb_simpled: ", knowledge_base_simplified2)
-#print()
 knowledge_base_simplified3 = simplifications.simplification3(knowledge_base_simplified2)
-#print("final kb_simpled: ", knowledge_base_simplified3)
-#print()
-sys.stdout.write(utils.output_KB(knowledge_base_simplified3 ))
+sys.stdout.write(utils.output_KB(knowledge_base_simplified3))
 sys.exit()
