@@ -227,7 +227,7 @@ class Resolution(Graph):
 
 		# End of resolution. (X == -X) or (-X == X) 
 		# The resolution is only finished when two sentences with only one literal are the symmetric of one another
-		if ( (is_literal(Ci) == 2 and list(self.vertices[Ci].symmetric)[0] == Cj) or (is_literal(Cj) == 2 and list(self.vertices[Ci].symmetric)[0] == Cj) ):
+		if ( (is_literal(Ci) == 2 and is_literal(Cj) == 3 and list(self.vertices[Ci].symmetric)[0] == Cj) or (is_literal(Cj) == 2 and is_literal(Ci) == 3 and list(self.vertices[Ci].symmetric)[0] == Cj) ):
 			return True
 
 		# Every literal of sentences Ci and Cj are gathered in a set named literals. Then the symmetrics are eliminated
