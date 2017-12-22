@@ -51,6 +51,16 @@ for line in fileinput.input():
             #literal clause case
             knowledge_base.add(sample_obj)
 
+to_remove = set()
+
+for sample in knowledge_base:
+    if isinstance(sample, tuple) or isinstance(sample, str):
+        for sample1 in knowledge_base:
+            if isinstance(sample1, frozenset) and len(sample1) == 1 and sample == next(iter(sample1)):
+                to_remove.add(sample1)
+
+for sample in to_remove:
+    knowledge_base.remove(sample)
 
 knowledge_base_simplified1 = simplifications.simplification1(knowledge_base)
 knowledge_base_simplified2 = simplifications.simplification2(knowledge_base_simplified1)
