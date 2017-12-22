@@ -34,7 +34,7 @@ def output_KB(knowledge_base):
                 if len(sample) == 1 and isinstance(list(sample)[0],tuple):
                     return_str += str(list(sample)[0]) + "\n"
                 elif len(sample) == 1:
-                    return_str += str(list(sample)[0]) + "\n"
+                    return_str += "'" + str(list(sample)[0]) + "'\n"
                 else:
                     return_str += "["
                     #second auxiliar iterator to help with commas to the desired output format
