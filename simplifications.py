@@ -125,6 +125,15 @@ def simplification3(knowledge_base):
                 if sample1 != sample and isinstance(sample1, frozenset) and len(sample) <= len(sample1):
                     if sample1.intersection(sample) == sample:
                         clauses_to_remove.add(sample1)
+
+            aux_flag = 0
+            for sample1 in sample:
+                for sample2 in knowledge_base:
+                    if sample1 == sample2:
+                        aux_flag = aux_flag + 1
+
+            if aux_flag == len(sample):
+                clauses_to_remove.add(sample)
         #literal case
         else:
             continue
