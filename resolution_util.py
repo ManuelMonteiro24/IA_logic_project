@@ -200,7 +200,7 @@ class Resolution(Graph):
 					cj = self.vertices[i].neighbors[0]
 					break
 			
-			result = self.resolve3(ci, cj)
+			result = self.resolve(ci, cj)
 			#self.count_iter += 1
 
 			# continue resolution
@@ -216,7 +216,7 @@ class Resolution(Graph):
 			return False
 
 
-	def resolve3(self, Ci, Cj):
+	def resolve(self, Ci, Cj):
 		end_resolution = 0
 
 		if is_literal(Ci) == -1:

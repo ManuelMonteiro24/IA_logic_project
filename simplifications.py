@@ -116,6 +116,7 @@ def simplification3(knowledge_base):
     clauses_to_remove = set()
 
     for sample in knowledge_base:
+        #print(sample, len(sample))
         #negated literal or clause case
         if isinstance(sample, frozenset) and len(sample) != 1:
             #goes trough the sentence (from the beginning), to check if the intersection between the clause being
@@ -127,12 +128,19 @@ def simplification3(knowledge_base):
                         clauses_to_remove.add(sample1)
 
             aux_flag = 0
-            for sample1 in sample:
+            for sample1 in list(sample):
                 for sample2 in knowledge_base:
-                    if sample1 == sample2:
+                    #print("\t", sample1, sample2)
+                    if isinstance(sample2, frozenset) and len(sample2) == 1:
+                        if list(sample2)[0] == sample1:
+                            #print("\t0 ",sample2, sample)
+                            aux_flag += 1
+                    elif sample1 == sample2:
+                        #print("\t1 ",sample2, sample)
                         aux_flag = aux_flag + 1
 
             if aux_flag == len(sample):
+                #print("YAY")
                 clauses_to_remove.add(sample)
         #literal case
         else:
